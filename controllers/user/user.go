@@ -4,12 +4,18 @@ import (
 	"bee-api-demo/services/user"
 )
 
+/**
+完成用户注册登录功能
+*/
+
 // GetUserById
+// @Title GetUser
+// @Author xiaolong
+// @Date 2022/11/24 21:26(create);
 // @Description 通过用户id获取用户信息
-// @Author 		xiaolong
-// @Date		2022/11/24 21:26(create);2022/11/25 16:14(update);
-// @Param		uid		int		用户id
-// @Return
+// @Param uid query int true 用户id
+// @Success 200 {object} user.User
+// @Failure 500 {string}
 // @router /id/:uid [get]
 func (u *UserController) GetUserById() {
 	uid, err := u.GetInt(":uid")
@@ -30,11 +36,13 @@ func (u *UserController) GetUserById() {
 }
 
 // GetUserByUsername
+// @Title GetUser
+// @Author xiaolong
+// @Date 2022/11/24 21:26(create);
 // @Description 通过用户名称获取用户信息
-// @Author 		xiaolong
-// @Date		2022/11/24 21:26(create);
-// @Param		username		string		用户名称
-// @Return
+// @Param username query string true 用户名称
+// @Success 200 {object} user.User
+// @Failure 500 {string}
 // @router /username/:username [get]
 func (u *UserController) GetUserByUsername() {
 	username := u.GetString(":username")

@@ -39,6 +39,7 @@ func registerModels() {
 }
 
 func registerORM() {
+
 	orm.Debug = true
 	err := registerDB("./conf/database-dev-config.json")
 	if err != nil {

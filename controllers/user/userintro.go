@@ -2,12 +2,18 @@ package user
 
 import "bee-api-demo/services/user"
 
+/**
+用户简介获取
+*/
+
 // GetIntroById
+// @Title GetUser
+// @Author xiaolong
+// @Date 2022/11/24 21:26(create);
 // @Description 通过IntroId获取Intro简介信息
-// @Author 		xiaolong
-// @Date		2022/11/24 21:26(create);
-// @Param		iid		int		简介信息id
-// @Return
+// @Param iid query int true 用户简介id
+// @Success 200 {object} user.UserIntro
+// @Failure 500 {string}
 // @router /intro/id/:iid [get]
 func (u *UserController) GetIntroById() {
 	iid, err := u.GetInt(":iid")
@@ -26,11 +32,13 @@ func (u *UserController) GetIntroById() {
 }
 
 // GetIntroByUid
+// @Title GetUser
+// @Author xiaolong
+// @Date 2022/11/24 21:26(create);
 // @Description 通过用户Id获取Intro简介信息
-// @Author 		xiaolong
-// @Date		2022/11/24 21:26(create);
-// @Param		uid		int		用户id
-// @Return
+// @Param uid query int true 用户id
+// @Success 200 {object} user.UserIntro
+// @Failure 500 {string}
 // @router /intro/uid/:uid [get]
 func (u *UserController) GetIntroByUid() {
 	uid, err := u.GetInt(":uid")

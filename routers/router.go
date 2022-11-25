@@ -40,5 +40,4 @@ func init() {
 		),
 	)
 	beego.AddNamespace(ns)
-
 }

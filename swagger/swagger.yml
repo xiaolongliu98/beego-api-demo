@@ -12,161 +12,120 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 basePath: /v1
 paths:
-  /user/:
+  /user/id/{uid}:
     get:
       tags:
       - user
       description: |-
-        get all Users
+        通过用户id获取用户信息
         <br>
-      operationId: UserController.GetAll
+      operationId: UserController.GetUser
+      parameters:
+      - in: query
+        name: uid
+        description: 用户id
+        required: true
+        type: integer
+        format: int64
       responses:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.User'
-    post:
-      tags:
-      - user
-      description: |-
-        create users
-        <br>
-      operationId: UserController.CreateUser
-      parameters:
-      - in: body
-        name: body
-        description: body for user content
-        required: true
-        schema:
-          $ref: '#/definitions/models.User'
-      responses:
-        "200":
-          description: '{int} models.User.Id'
-        "403":
-          description: body is empty
-  /user/{uid}:
+            $ref: '#/definitions/user.User'
+        "500":
+          description: '{string}'
+  /user/intro/id/{iid}:
     get:
       tags:
       - user
       description: |-
-        get user by uid
+        通过IntroId获取Intro简介信息
         <br>
-      operationId: UserController.Get
+      operationId: UserController.GetUser
       parameters:
-      - in: path
-        name: uid
-        description: The key for staticblock
+      - in: query
+        name: iid
+        description: 用户简介id
         required: true
-        type: string
+        type: integer
+        format: int64
       responses:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.User'
-        "403":
-          description: :uid is empty
-    put:
-      tags:
-      - user
-      description: |-
-        update the user
-        <br>
-      operationId: UserController.Update
-      parameters:
-      - in: path
-        name: uid
-        description: The uid you want to update
-        required: true
-        type: string
-      - in: body
-        name: body
-        description: body for user content
-        required: true
-        schema:
-          $ref: '#/definitions/models.User'
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.User'
-        "403":
-          description: :uid is not int
-    delete:
-      tags:
-      - user
-      description: |-
-        delete the user
-        <br>
-      operationId: UserController.Delete
-      parameters:
-      - in: path
-        name: uid
-        description: The uid you want to delete
-        required: true
-        type: string
-      responses:
-        "200":
-          description: '{string} delete success!'
-        "403":
-          description: uid is empty
-  /user/login:
+            $ref: '#/definitions/user.UserIntro'
+        "500":
+          description: '{string}'
+  /user/intro/uid/{uid}:
     get:
       tags:
       - user
       description: |-
-        Logs user into the system
+        通过用户Id获取Intro简介信息
         <br>
-      operationId: UserController.Login
+      operationId: UserController.GetUser
+      parameters:
+      - in: query
+        name: uid
+        description: 用户id
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/user.UserIntro'
+        "500":
+          description: '{string}'
+  /user/username/{username}:
+    get:
+      tags:
+      - user
+      description: |-
+        通过用户名称获取用户信息
+        <br>
+      operationId: UserController.GetUser
       parameters:
       - in: query
         name: username
-        description: The username for login
-        required: true
-        type: string
-      - in: query
-        name: password
-        description: The password for login
+        description: 用户名称
         required: true
         type: string
       responses:
         "200":
-          description: '{string} login success'
-        "403":
-          description: user not exist
-  /user/logout:
-    get:
-      tags:
-      - user
-      description: |-
-        Logs out current logged in user session
-        <br>
-      operationId: UserController.logout
-      responses:
-        "200":
-          description: '{string} logout success'
-  /user/mytest/{uid}:
-    get:
-      tags:
-      - user
-      description: |-
-        Logs out current logged in user session
-        <br>
-      operationId: UserController.logout
-      responses:
-        "200":
-          description: '{string} logout success'
+          description: ""
+          schema:
+            $ref: '#/definitions/user.User'
+        "500":
+          description: '{string}'
 definitions:
-  models.User:
+  user.User:
     title: User
     type: object
     properties:
       id:
-        type: string
+        description: 用户id
+        type: integer
+        format: int64
       password:
+        description: 用户密码
         type: string
       username:
+        description: 用户名
         type: string
-tags:
-- name: user
-  description: |
-    Operations about Users
+  user.UserIntro:
+    title: UserIntro
+    type: object
+    properties:
+      id:
+        description: 简介id
+        type: integer
+        format: int64
+      introduction:
+        description: 简介内容
+        type: string
+      user_id:
+        description: 用户id
+        type: integer
+        format: int64

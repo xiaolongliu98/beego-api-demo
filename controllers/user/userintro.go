@@ -1,6 +1,6 @@
 package user
 
-import "bee-api-example1/services/user"
+import "bee-api-demo/services/user"
 
 // GetIntroById
 // @Description 通过IntroId获取Intro简介信息

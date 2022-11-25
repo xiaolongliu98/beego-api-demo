@@ -1,6 +1,6 @@
 package user
 
-import "bee-api-example1/models/user"
+import "bee-api-demo/models/user"
 
 /**
 业务逻辑层 - user/user业务

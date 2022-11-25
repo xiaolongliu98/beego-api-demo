@@ -1,7 +1,7 @@
 package user
 
 import (
-	"bee-api-example1/services/user"
+	"bee-api-demo/services/user"
 )
 
 // GetUserById

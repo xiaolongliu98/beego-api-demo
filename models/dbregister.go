@@ -1,8 +1,8 @@
 package models
 
 import (
-	"bee-api-example1/models/db"
-	"bee-api-example1/models/user"
+	"bee-api-demo/models/db"
+	"bee-api-demo/models/user"
 	"fmt"
 	"github.com/astaxie/beego/orm"
 )

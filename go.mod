@@ -1,4 +1,4 @@
-module bee-api-example1
+module bee-api-demo
 
 go 1.19
 

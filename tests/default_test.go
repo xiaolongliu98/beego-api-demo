@@ -1,7 +1,7 @@
 package test
 
 import (
-	_ "bee-api-example1/routers"
+	_ "bee-api-demo/routers"
 	"net/http"
 	"net/http/httptest"
 	"path/filepath"

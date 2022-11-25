@@ -1,8 +1,8 @@
 package main
 
 import (
-	"bee-api-example1/models"
-	_ "bee-api-example1/routers"
+	"bee-api-demo/models"
+	_ "bee-api-demo/routers"
 	beego "github.com/beego/beego/v2/server/web"
 	_ "github.com/go-sql-driver/mysql"
 )

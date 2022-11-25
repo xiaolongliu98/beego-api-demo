@@ -8,7 +8,7 @@
 package routers
 
 import (
-	"bee-api-example1/controllers/user"
+	"bee-api-demo/controllers/user"
 	"github.com/beego/beego/v2/server/web/filter/cors"
 
 	beego "github.com/beego/beego/v2/server/web"

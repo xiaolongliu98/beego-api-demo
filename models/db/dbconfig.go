@@ -1,7 +1,7 @@
 package db
 
 import (
-	"bee-api-example1/utils"
+	"bee-api-demo/utils"
 	"fmt"
 )
 
